@@ -3,14 +3,20 @@ import 'package:my_theming_app/model/product.dart';
 import 'package:my_theming_app/model/data.dart';
 import 'package:my_theming_app/colors.dart';
 import 'login.dart';
-
+import 'package:my_theming_app/backdrop.dart';
 class ShrineApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shrine',
-      home: new _MyHomePage(),
+      home:  Backdrop(
+        currentCategory: Category.all,
+        frontPanel: _MyHomePage(),
+        backPanel: Container(color: kShrinePink100),
+        frontTitle: Text('SHRINE'),
+        backTitle: Text('MENU'),
+      ),
       theme: _kShrineTheme,
       initialRoute: '/login',
       onGenerateRoute: _getRoute,
@@ -82,28 +88,6 @@ class _MyHomePageState extends State<_MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Shrine'),
-        leading: IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {
-              print('Menu button');
-            }),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              print('Search button');
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.tune),
-            onPressed: () {
-              print('Filter button');
-            },
-          ),
-        ],
-      ),
       body: GridView.count(
         crossAxisCount: 2,
         padding: EdgeInsets.all(16.0),
