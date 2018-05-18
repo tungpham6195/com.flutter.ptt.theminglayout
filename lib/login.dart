@@ -20,7 +20,7 @@ class PrimaryColorOverride extends StatelessWidget {
             primaryColor: color,
           ),
     );
-  }
+  }  
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 new RaisedButton(
                   child: new Text('NEXT'),
                   onPressed: () {
-print(_evenCasesIndex(2));
+                    print(_evenCasesIndex(2));
                     // Navigator.pop(context);
                   },
                 )
@@ -82,13 +82,16 @@ print(_evenCasesIndex(2));
       ),
     );
   }
-int _oddCasesIndex(int input) {
+
+  int _oddCasesIndex(int input) {
     assert(input > 0);
     return (input / 2).ceil() * 3 - 1;
   }
-   int _evenCasesIndex(int input) {
-    return input ~/ 2*3;
+
+  int _evenCasesIndex(int input) {
+    return input ~/ 2 * 3;
   }
+
   void _clearTextField() {
     _usernameController.clear();
     _passwordController.clear();

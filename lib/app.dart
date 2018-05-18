@@ -19,7 +19,7 @@ class ShrineApp extends StatelessWidget {
       ),
       theme: _kShrineTheme,
       initialRoute: '/login',
-      onGenerateRoute: _getRoute,
+      onGenerateRoute: (settings)=>_getRoute(settings),
     );
   }
 }
@@ -53,7 +53,9 @@ ThemeData _buildkShrineTheme() {
       color: kShrineBrown900,
     ),
     inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(100.0)),
+      ),
     ),
   );
 }
